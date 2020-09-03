@@ -1,0 +1,5 @@
+com\chenpt\controller\ProductController.class
+com\chenpt\dao\ProductDao.class
+com\chenpt\ProductApplication.class
+com\chenpt\service\ProductService.class
+com\chenpt\service\impl\ProductServiceImpl.class

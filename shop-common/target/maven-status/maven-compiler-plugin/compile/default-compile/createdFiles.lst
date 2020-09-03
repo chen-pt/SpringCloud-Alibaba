@@ -1,0 +1,4 @@
+com\chenpt\domain\TxLog.class
+com\chenpt\domain\Order.class
+com\chenpt\domain\Product.class
+com\chenpt\domain\User.class

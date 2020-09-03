@@ -1,0 +1,38 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: service-order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.61.131:3306/shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # 指定控制台服务的地址
+        port: 9999
+# 开启 Feign 对 Sentinel 的支持
+feign:
+  sentinel:
+    enabled: true
+service-product: # 调用的提供者的名称
+ ribbon:
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #负载均衡规则：随机
+#mq
+rocketmq:
+  name-server: 172.20.10.6:9876
+  producer:
+    group: shop-order   #生产者组
+
